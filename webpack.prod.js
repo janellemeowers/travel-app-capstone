@@ -26,27 +26,22 @@ module.exports = {
         test: /\.scss$/,
         use: [ 'style-loader', 'css-loader', 'sass-loader' ]
 },
-  // {
-  //      test: /\.(png|svg|jpg|gif)$/,
-  //      loader: 'url-loader',
-  //              options: {
-  //                  limit: 8000, // Convert images < 8kb to base64 strings
-  //                  name: 'images/[hash]-[name].[ext]'}
-  //    },
-  //    {
-  //    test: /\.(html)$/,
-  //    use: [{
-  //      loader: 'html-loader'
-  //    }]
-  //  },
-        ]
-    },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+        },
+   },
+ ],
+  },
+
     plugins: [
         new HtmlWebPackPlugin({
             template: "./src/client/views/index.html",
             filename: "./index.html",
         }),
-        
+
 
     ]
 };
