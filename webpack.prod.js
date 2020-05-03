@@ -9,7 +9,9 @@ module.exports = {
     entry: './src/client/index.js',
     mode: 'production',
     devServer: {
-    port: 3000},
+    port: 3000,
+    },
+
     output: {
     libraryTarget: 'var',
     library: 'Client',
@@ -26,11 +28,14 @@ module.exports = {
         test: /\.scss$/,
         use: [ 'style-loader', 'css-loader', 'sass-loader' ]
 },
+
       {
         test: /\.(png|jpg)$/,
         loader: 'file-loader',
         options: {
           name: '[path][name].[ext]',
+
+
         },
    },
  ],

@@ -29,12 +29,16 @@ module.exports = {
     use: [ 'style-loader', 'css-loader', 'sass-loader' ]
 },
     {
-      test: /\.(png|jpg)$/,
-      use: [ 'file-loader',
-       ],
+        test: /\.(png|jpg)$/,
+      use: {
+        loader: 'url-loader',
+        options: {
+          limit: 8000,
+          name: '[path][name].[ext]',
       },
-     
-   ],
+     },
+   },
+        ]
     },
 
     plugins: [
