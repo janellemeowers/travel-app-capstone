@@ -29,7 +29,7 @@ app.listen(3000, function () {
 //FIX FOR WEBPACK 'dist/index.html'
 
 app.get('/', function (req, res) {
- res.sendFile('dist/index.html')
+  res.sendFile('dist/index.html')
 });
 
 //app.get('/', function (req, res) {

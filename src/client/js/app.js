@@ -8,29 +8,33 @@ const weatherBaseUrl = 'https://cors-anywhere.herokuapp.com/http://api.weatherbi
 //Pixabay API
 const pixabayBaseUrl = 'https://pixabay.com/api/';
 const pixaAPIKey = '16298290-8f92b102f0df5b5586801c1e9';
+const button = document.getElementById('cta');
+const deleteBtn = document.getElementById('delete');
+//UPDATE FORM functions//
 
-//UPDATE UI FORM functions//
 
-function removeUI(){
+const tripAdd = button.addEventListener('click', function (e) {
+  e.preventDefault();
+});
 
-let appBody = document.getElementById('app');
-let resultBody = document.getElementById('result_invisible');
-appBody.style.display = "none";
-resultBody.style.display = "block";
-}
+//UPDATE UI FORM
+button.addEventListener('click',function(e){
+  let appBody = document.getElementById('app');
+  let resultBody = document.getElementById('result_invisible');
+  appBody.style.display = "none";
+  resultBody.style.display = "block";
+});
+
 //Delete goes back to original//
- function goBack() {
+ deleteBtn.addEventListener('click',function(e){
   let appBody = document.getElementById('app');
   let resultBody = document.getElementById('result_invisible');
   appBody.style.display = "block";
   resultBody.style.display = "none";
 
-}
+});
 
-  document.getElementById('cta').addEventListener('click', submitTrip);
-  document.getElementById('cta').addEventListener('click', removeUI);
-  document.getElementById('delete').addEventListener('click', goBack);
-
+ button.addEventListener('click', submitTrip);
 
 
  function submitTrip(e) {
@@ -41,7 +45,7 @@ resultBody.style.display = "block";
    const currentTime = new Date();
 
 
-  getCityInfo(geoNamesURL, locationAnswer, username)
+  getCity(geoBaseUrl, locationAnswer, username)
    .then((cityData) => {
      const cityLat = cityData.geonames[0].lat;
      const cityLon = cityData.geonames[0].lng;
@@ -51,7 +55,9 @@ resultBody.style.display = "block";
    })
    .then((weatherData) => {
       //add data to POST request
-     const allData = postData('http://localhost:3000/add', {locationAnswer, dateAnswer, weather: weatherData.data.temp, daysUntil});
+      const daysCalc = Math.ceil(dateAnswer - currentTime);
+      const daysUntil = Math.round(daysCalc / 8.64e7);
+      const allData = postData('http://localhost:3000/add', {locationAnswer, dateAnswer, weather: weatherData.data.temp, daysUntil});
      return allData;})
 
    .then(function (allData) {
@@ -60,8 +66,8 @@ resultBody.style.display = "block";
      });
 }
 //GET request for GEO API data
- const getCityData = async (geoBaseUrl, locationAnswer, username) => {
-  const res = await fetch(geoBaseUrl + locationAnswer + "&maxRows=10&" + "username=" + username);
+ const getCity = async (geoBaseUrl, locationAnswer, username) => {
+  const response = await fetch(geoBaseUrl + locationAnswer + "&maxRows=10&" + "username=" + username);
   try {
     const cityData = await response.json();
     return cityData;
@@ -83,8 +89,8 @@ resultBody.style.display = "block";
 
 
 //POST request adds weather and user entries to app
-const postData = async (url = '', data = {}) => {
-    const newResponse = await fetch(url, {
+export const postData = async (url ='', data = {}) => {
+    const request = await fetch(url, {
         method: 'POST',
         credentials: 'same-origin',
         headers: {
@@ -93,31 +99,29 @@ const postData = async (url = '', data = {}) => {
 
       body: JSON.stringify({
       dateAnswer: data.dateAnswer,
-      locationAnswer: data.locationAnswer,
+      location: data.locationAnswer,
       weather: data.weather,
       daysUntil: data.daysUntil
     })
   });
 
     try {
-        const newData = await req.json();
-        return newData;
+        const allData = await request.json();
+        return allData;
     } catch(error) {
-        console.log('error', error);
+        console.log('error',error);
     }
 };
 
 //Update UI with user entry
 
-const updateUI = async(allData) => {
+export const updateUI = async(allData) => {
 
-    const res = await fetch(pixabayBaseUrl + pixaAPIKey + "&q=" + allData.locationAnswer + "+&image_type=illustration");
+    const res = await fetch(pixabayBaseUrl + pixaAPIKey + "&q=" + allData.location + "+&image_type=illustration");
     try {
        const pixaImage = await res.json();
         //calc days
-        const daysCalc = Math.ceil(dateAnswer - currentTime);
-        const daysUntil = Math.round(daysCalc / 8.64e7);
-        const dateFormat = dateAnswer.split("-").reverse().join("/");
+        const dateFormat = allData.dateAnswer.split("-").reverse().join("/");
         //update text
         document.getElementById('city').innerHTML = allData.locationAnswer;
         document.getElementById('temp').innerHTML = allData.weather;
