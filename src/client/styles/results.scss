@@ -1,0 +1,34 @@
+/*remove*/
+
+
+#result_invisible {
+  display: column;
+  box-shadow: 0 0.8rem 2rem rgba(0,0,0,0.1);
+  background: white;
+  grid-gap: 2em;
+  font-size: 18px;
+  font-family: Avenir, sans-serif;
+  margin-left: 350px;
+  margin-right: 350px;
+  margin-top: 5em;
+  padding: 40px 0px 25px 20px;
+  opacity: .96;
+  align-items: center;
+
+
+}
+
+h3 {
+  font-family: avenir, sans-serif;
+  font-weight: lighter;
+  margin-left: 300px;
+
+}
+
+#save {
+  text-decoration: none;
+}
+
+#delete {
+  text-decoration: none;
+}

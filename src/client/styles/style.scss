@@ -1,0 +1,168 @@
+/*@import url(results.css); */
+
+#result_invisible {
+   display: none;
+}
+
+.headline {
+  font-size: 40px;
+  margin:100px;
+  text-align: center;
+
+}
+
+body{
+    background: white;
+    font-family: Avenir, sans-serif;
+
+}
+
+#app{
+    display: column;
+    box-shadow: 0 0.8rem 2rem rgba(0,0,0,0.1);
+    background: white;
+    grid-gap: 2em;
+    font-size: 20px;
+    font-family: Avenir, sans-serif;
+    margin-left: 350px;
+    margin-right: 350px;
+    margin-top: 5em;
+    padding: 40px 0px 25px 20px;
+    opacity: .96;
+    align-items: center;
+
+}
+
+#form-text {
+margin-left: 170px;
+margin-top: -10px;
+padding-bottom: 40px;
+color: #ffd868;
+
+}
+
+::placeholder {
+  color: #00bcd4;
+  font-family: courier;
+  padding-left: 10px;
+
+}
+
+input{
+    display:block;
+    height: 45px;
+    width: 320px;
+    color: #00bcd4;
+    background-color: rgba(255, 171, 157, 0.5);
+    font-size: 16px;
+    border: none;
+    margin-bottom: 17px;
+}
+
+label {
+  display: block;
+ font-size: 30px;
+ font-weight: bolder;
+}
+
+/*images*/
+
+.tickets {
+  width: 500px;
+  height: 500px;
+  position: fixed;
+  margin-top: -70px;
+  margin-left: 18px;
+  z-index: -1;
+}
+
+.luggage {
+  width: 500px;
+  height: 500px;
+  position: fixed;
+  margin-top: -70px;
+  margin-left: 900px;
+  z-index: -2;
+}
+
+
+
+.footer {
+  text-align: justify;
+  margin-top: 180px;
+}
+
+
+#entryHolder{
+
+}
+
+#date{
+
+}
+
+#temp{
+
+}
+
+#content{
+
+}
+
+
+
+/*  Submit Button */
+
+
+
+
+#cta {
+  position: absolute;
+  margin: auto;
+  padding: 19px 22px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+#cta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 28px;
+  background: rgba(255, 171, 157, 0.5);
+  width: 56px;
+  height: 56px;
+  transition: all 0.3s ease;
+}
+#cta span {
+  position: relative;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+#cta svg {
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #111;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+#cta:hover:before {
+  width: 100%;
+  background: #ffab9d;
+}
+#cta:hover svg {
+  transform: translateX(0);
+}
+#cta:active {
+  transform: scale(0.96);
+}
