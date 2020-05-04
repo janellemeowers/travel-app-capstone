@@ -21,8 +21,8 @@ app.use(express.static('dist'));
 
 
 // Setup Server
-app.listen(3000, function () {
-  console.log("server has started on port 3000");
+app.listen(5000, function () {
+  console.log("server has started on port 5000");
 });
 
 //GET route returns projectData
