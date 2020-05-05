@@ -17,6 +17,7 @@ const printBtn = document.getElementById('print');
 
 
 //UPDATE UI FORM
+
 button.addEventListener('click',function(e){
    e.preventDefault();
   let appBody = document.getElementById('app');

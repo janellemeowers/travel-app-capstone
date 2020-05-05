@@ -4,6 +4,7 @@ projectData = {};
 // Require Express to run server and routes
 const express = require('express');
 
+
 // Start up an instance of app
 const app = express();
 /* Middleware*/
@@ -42,4 +43,4 @@ projectData.daysUntil = req.body.daysUntil;
    res.send(projectData);
  });
 
- //module.exports = app;
+ module.exports = app;

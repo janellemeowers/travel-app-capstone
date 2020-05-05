@@ -1,4 +1,4 @@
-/*@import url(results.css); */
+//@media responsive for iphone 
 
 #result_invisible {
    display: none;
@@ -8,6 +8,10 @@
   font-size: 40px;
   margin:100px;
   text-align: center;
+
+  @media (max-width:812px) {
+    font-size: 30px;
+  }
 
 }
 
@@ -31,6 +35,10 @@ body{
     opacity: .96;
     align-items: center;
 
+@media (max-width:812px) {
+  margin-left: 25px;
+  margin-right: 25px;
+}
 }
 
 #form-text {
@@ -38,6 +46,9 @@ margin-left: 170px;
 margin-top: -10px;
 padding-bottom: 40px;
 color: #ffd868;
+@media (max-width:812px){
+  margin-left: 35px;
+}
 
 }
 
@@ -78,6 +89,7 @@ label {
   margin-top: -70px;
   margin-left: 18px;
   z-index: -1;
+
 }
 
 #luggage {
@@ -87,6 +99,10 @@ label {
   margin-top: -70px;
   margin-left: 900px;
   z-index: -2;
+
+  @media (max-width:812px) {
+     display: none;
+}
 }
 
 
@@ -97,21 +113,7 @@ label {
 }
 
 
-#entryHolder{
 
-}
-
-#date{
-
-}
-
-#temp{
-
-}
-
-#content{
-
-}
 
 
 

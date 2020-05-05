@@ -1,9 +1,14 @@
-/*remove*/
+
 #cityImage {
-  border-radius: 217px;
-  width: 215px;
+  border-radius: 220px;
+  width: 210px;
   height: 200px;
   position: absolute;
+
+  @media (max-width:812px) {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 .result_color {
@@ -24,7 +29,15 @@
   opacity: .96;
   align-items: center;
 
+  @media (max-width:812px) {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
 
+@media (max-width:812px) {.result_text {
+  margin-left: -65px;
+}
 }
 
 h3 {

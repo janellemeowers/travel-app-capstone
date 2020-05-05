@@ -9,4 +9,4 @@ To run: "npm run build-prod" and then "npm start" to start the server.
 Enter city name (Try London or Paris) for a cute illustration!
 
 
-- Add Testing, service workers, mobile responsive
+- Add Testing, service workers, 
