@@ -12,25 +12,31 @@ const pixaAPIKey = '16298290-8f92b102f0df5b5586801c1e9';
 //Buttons
 const button = document.getElementById('cta');
 const deleteBtn = document.getElementById('delete');
+const printBtn = document.getElementById('print');
 
 
 
 //UPDATE UI FORM
 button.addEventListener('click',function(e){
+   e.preventDefault();
   let appBody = document.getElementById('app');
   let resultBody = document.getElementById('result_invisible');
   appBody.style.display = "none";
   resultBody.style.display = "block";
 });
 
-//Delete goes back to original//
+//Delete refreshes//
  deleteBtn.addEventListener('click',function(e){
-  let appBody = document.getElementById('app');
-  let resultBody = document.getElementById('result_invisible');
-  appBody.style.display = "block";
-  resultBody.style.display = "none";
-
+    e.preventDefault();
+    location.reload();
 });
+
+//print lets you save or export to pdf
+printBtn.addEventListener('click',function(e){
+  e.preventDefault();
+  window.print();
+});
+
 
 //Event Listener to Call Main Function
  button.addEventListener('click', submitTrip);
@@ -113,7 +119,7 @@ const postData = async (url ='', data = {}) => {
     const res = await fetch(pixabayBaseUrl + pixaAPIKey + "&q=" + allData.locationAnswer + "+&image_type=illustration");
     try {
        const pixaImage = await res.json();
-        //countdown days
+        //countdown calculation
         const currentTime = new Date();
         const newDateAnswer = new Date (document.getElementById('date').value);
         const daysCalc = Math.ceil(newDateAnswer - currentTime);
@@ -122,7 +128,7 @@ const postData = async (url ='', data = {}) => {
         //update text
         document.getElementById('city').innerHTML = allData.locationAnswer;
         document.getElementById('temp').innerHTML = allData.weather;
-         document.getElementById('days').textContent = countdown;
+        document.getElementById('days').textContent = countdown;
         document.getElementById('dateEntered').innerHTML = dateFormat;
         document.getElementById('cityImage').setAttribute('src', pixaImage.hits[0].webformatURL);
 

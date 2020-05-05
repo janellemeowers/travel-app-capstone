@@ -6,4 +6,7 @@ This project requires you to create an asynchronous web app that uses multiple W
 ## Instructions
 To run: "npm run build-prod" and then "npm start" to start the server.
 
-Enter city name (Try London or Tokyo) for a cute illustration! 
+Enter city name (Try London or Paris) for a cute illustration!
+
+
+- Add Testing, service workers, mobile responsive

@@ -1,6 +1,5 @@
 import { submitTrip } from './js/app';
-//import html from './views/index.html';
-//import { handleSubmit } from './js/formHandler'
+
 import './styles/results.scss';
 import './styles/style.scss';
 

@@ -26,15 +26,11 @@ app.listen(5000, function () {
 });
 
 //GET route returns projectData
-//FIX FOR WEBPACK 'dist/index.html'
 
 app.get('/', function (req, res) {
   res.sendFile('dist/index.html')
 });
 
-//app.get('/', function (req, res) {
-//  res.send(projectData);
-//});
 
 //POST route adds incoming projectData
 
@@ -45,3 +41,5 @@ projectData.weather = req.body.weather;
 projectData.daysUntil = req.body.daysUntil;
    res.send(projectData);
  });
+
+ //module.exports = app;

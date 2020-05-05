@@ -59,6 +59,10 @@ input{
     margin-bottom: 17px;
 }
 
+input:hover {
+  outline: 3px dashed orange;
+}
+
 label {
   display: block;
  font-size: 30px;
