@@ -7,3 +7,7 @@ This project requires you to create an asynchronous web app that uses multiple W
 To run: "npm run build-prod" and then "npm start" to start the server.
 
 Enter city name (Try London or Paris) for a cute illustration!
+
+
+
+![Screenshot](site1.png)
